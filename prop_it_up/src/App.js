@@ -9,6 +9,7 @@ function App() {
       <PersonCard firstName="Morticia" lastName="Addams" age={30} hairColor="Black"/>
       <PersonCard firstName="Wednesday" lastName="Addams" age={12} hairColor="Black"/>
       <PersonCard firstName="Pugsley" lastName="Addams" age={30} hairColor="Black"/>
+      <button onClick={ ()=> alert("This button has been clicked!") }>Click Me</button>
     </div>
   );
 }
