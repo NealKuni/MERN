@@ -1,0 +1,11 @@
+.taskCompleted{
+    text-decoration: line-through;
+    color: lightgray;
+
+}
+
+.taskNotCompleted{
+    color: blue;
+    font-weight: bold;
+}
+
