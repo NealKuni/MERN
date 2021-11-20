@@ -1,19 +1,22 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const Pokedex = (props) => {
     const [pokemon, setPokemon] = useState([]);
 
     useEffect(() => {
-        fetch('https://pokeapi.co/api/v2/pokemon/')
-            .then(response => response.json())
-            .then(response => setPokemon(response.results))
+        axios.get('https://pokeapi.co/api/v2/pokemon?limit=807')
+            .then(response => setPokemon(response.data.results))
+            .catch(error => console.log(error));
     }, []);
 
     return (
         <div>
-            {pokemon.length > 0 && pokemon.map((pokemon, index)=>{
-                return (<div key={index}>{pokemon.name}</div>)
-            })}
+            {pokemon.map((pokemon, index)=> (
+                <div key={index}>
+                    {index} - {pokemon.name}
+                </div>)
+            )}
         </div>
     );
 }
