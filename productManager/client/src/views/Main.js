@@ -1,29 +1,33 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-import { Router, Link } from '@reach/router';
 import ProductForm from '../components/ProductForm';
 import ProductList from '../components/ProductList';
-import ProductEdit from '../components/ProductEdit';
-import ProductDelete from '../components/ProductDelete';
+
 
 
 const Main = () => {
-    const [product, setProduct] = useState([]);
+    const [products, setProducts] = useState([]);
     const [loaded, setLoaded] = useState(false);
     useEffect(()=>{
         axios.get('http://localhost:8000/api/product')
             .then(res=>{
-                setProduct(res.data);
+                setProducts(res.data);
                 setLoaded(true);
             });
     },[])
+
+    const removeFromDom = productId => {
+        setProducts(products.filter(product => product._id != productId));
+    };
+
     return (
         <div>
             <ProductForm/>
             <hr/>
-            { loaded && <ProductList product={product}/> }
+            { loaded && <ProductList products={products} removeFromDom={removeFromDom}/> }
         </div>
     )
 }
+
 export default Main;
 
