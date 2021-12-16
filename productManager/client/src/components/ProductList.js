@@ -4,6 +4,7 @@ import { Link } from '@reach/router';
 
 const ProductList = (props) => {
   const{ removeFromDom, products } = props;
+
   const deleteProduct = (productId) => {
     axios.delete('http://localhost:8000/api/product/' + productId)
         .then((res) => {
@@ -18,14 +19,14 @@ const ProductList = (props) => {
   };
 
   return (
-    <div>
+    <div  className="d-flex flex-column">
         {products.map((product, idx)=>{
           console.log(product)
             return (
-              <div key={idx}>  
-                <Link to={`/product/${product._id}/`} >{product.title}</Link>
-                <Link to={`/product/${product._id}/edit`}>Edit</Link>
-                <button onClick={(e) => {deleteProduct(product._id)}}>Delete</button>
+              <div className="m-2" key={idx}>  
+                <Link className="ms-2" to={`/product/${product._id}/`} >{product.title}</Link>
+                <Link className="ms-2"to={`/product/${product._id}/edit`}>Edit</Link>
+                <button className="ms-2" onClick={(e) => {deleteProduct(product._id)}}>Delete</button>
               </div>
             )
         })}

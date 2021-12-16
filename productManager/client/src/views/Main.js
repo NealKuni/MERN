@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import ProductForm from '../components/ProductForm';
 import ProductList from '../components/ProductList';
-
+import ProductHeader from '../components/ProductHeader';
 
 
 const Main = () => {
@@ -20,9 +20,11 @@ const Main = () => {
         setProducts(products.filter(product => product._id != productId));
     };
 
+
     return (
         <div>
-            <ProductForm/>
+            <ProductHeader/>
+            <ProductForm />
             <hr/>
             { loaded && <ProductList products={products} removeFromDom={removeFromDom}/> }
         </div>
