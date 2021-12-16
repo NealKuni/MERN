@@ -15,8 +15,13 @@ const PetSchema = new mongoose.Schema({
     type: String,
     required: [true, "A pet description is required."],
     minlength: [3, "A pet description must be at least 3 characters long"],
+  },
+  petSkills: {
+    type: Array
   }
 }, {timestamps: true});
+
+
 
 // the model will join the collection and the schema
 const Pet = mongoose.model('pets', PetSchema);
