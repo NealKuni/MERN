@@ -26,8 +26,3 @@ class BankAccount {
   }
 }
 
-const account1 = new BankAccount(.01, 10000);
-const account2 = new BankAccount(.05, 1000);
-
-account1.deposit(500).deposit(500).deposit(500).yieldInterest().displayAccountInfo();
-account2.deposit(500).deposit(500).withdraw(100).withdraw(100).withdraw(100).withdraw(100).displayAccountInfo();
