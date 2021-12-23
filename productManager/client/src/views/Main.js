@@ -17,7 +17,7 @@ const Main = () => {
     },[])
 
     const removeFromDom = productId => {
-        setProducts(products.filter(product => product._id != productId));
+        setProducts(products.filter(product => product._id !== productId));
     };
 
 
