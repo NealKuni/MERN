@@ -1,10 +1,11 @@
 class Ninja{
-  constructor(name, health){
+  constructor(name, health, speed = 3, strength = 3){
     this.name = name;
-    this.name = health;
-    this.speed = 3;
-    this.health = 3;
-  
+    this.health = health;
+    this.speed = speed;
+    this.strength = strength;
+    
+    
   }
 
   sayName(){
@@ -24,3 +25,20 @@ class Ninja{
   }
 
 }
+
+class Sensei extends Ninja{
+  constructor(name, wisdom = 10){
+    super(name, 200, 10, 10);
+    this.wisdom = wisdom;
+    }
+
+    speakWisdom(){
+      super.drinkSake();
+      console.log('There is no try, there is only do or do not...Hmmm sake!')
+    }
+}
+
+
+const sensei = new Sensei('master yoda');
+sensei.speakWisdom();
+
